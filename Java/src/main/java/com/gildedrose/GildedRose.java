@@ -26,6 +26,10 @@ class GildedRose {
             new AgedBrieUpdater().update(item);
             return;
         }
+        if (BACKSTAGE_PASSES.equals(item.name)) {
+            new BackstagePassUpdater().update(item);
+            return;
+        }
 
         if (!item.name.equals(AGED_BRIE)
                 && !item.name.equals(BACKSTAGE_PASSES)) {

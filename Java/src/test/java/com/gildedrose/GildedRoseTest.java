@@ -74,7 +74,7 @@ class GildedRoseTest {
 
     @Test
     void backstageIncreasesByOnce_whenMoreThanTenDays() {
-        //si la date du concert est X > 10j alors quality + 1
+        //si la date avant le concert est X > 10j alors quality + 1
         Item item = updateItemOnce(BACKSTAGE, 11, 20);
 
         assertEquals(21, item.quality);
@@ -82,7 +82,7 @@ class GildedRoseTest {
 
     @Test
     void backstageIncreasesByTwo_whenBetweenFiveAndTenDays() {
-        //si la date du concert est entre 5j et 10j cad 5j < X <= 10j alors quality + 2
+        //si la date avant le concert est entre 5j et 10j cad 5j < X <= 10j alors quality + 2
         Item item1 = new Item(BACKSTAGE, 10, 20);
         Item item2 = new Item(BACKSTAGE, 8, 21);
         Item item3 = new Item(BACKSTAGE, 5, 22);
@@ -97,7 +97,7 @@ class GildedRoseTest {
 
     @Test
     void backstageIncreasesByTree_whenFiveDaysOrLess() {
-        // si la date du concert est <= 5j alors quality + 3
+        // si la date avant le concert est <= 5j alors quality + 3
         Item item = updateItemOnce(BACKSTAGE, 5, 20);
 
         assertEquals(23, item.quality);
