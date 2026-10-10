@@ -22,6 +22,10 @@ class GildedRose {
             new LegendaryItemUpdater().update(item);
             return;
         }
+        if (AGED_BRIE.equals(item.name)) {
+            new AgedBrieUpdater().update(item);
+            return;
+        }
 
         if (!item.name.equals(AGED_BRIE)
                 && !item.name.equals(BACKSTAGE_PASSES)) {
