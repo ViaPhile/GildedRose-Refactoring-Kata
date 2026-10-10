@@ -18,6 +18,11 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
+        if (item.name.equals(SULFURAS)) {
+            new LegendaryItemUpdater().update(item);
+            return;
+        }
+
         if (!item.name.equals(AGED_BRIE)
                 && !item.name.equals(BACKSTAGE_PASSES)) {
             if (item.quality > 0) {
