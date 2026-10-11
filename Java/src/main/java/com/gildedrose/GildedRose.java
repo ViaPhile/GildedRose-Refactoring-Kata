@@ -4,6 +4,7 @@ class GildedRose {
     public static final String AGED_BRIE = "Aged Brie";
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    public static final String CONJURED = "Conjured Mana Cake";
 
     Item[] items;
 
@@ -23,10 +24,13 @@ class GildedRose {
                 new LegendaryItemUpdater().update(item);
                 return;
             case AGED_BRIE:
-                new AgedBrieUpdater().update(item);
+                new AgedBrieItemUpdater().update(item);
                 return;
             case BACKSTAGE_PASSES:
-                new BackstagePassUpdater().update(item);
+                new BackstageItemUpdater().update(item);
+                return;
+            case CONJURED:
+                new ConjuredItemUpdater().update(item);
                 return;
             default:
                 new NormalItemUpdater().update(item);

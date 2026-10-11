@@ -5,7 +5,7 @@ package com.gildedrose;
  *
  * @author vianney On 10/10/2026
  */
-public class BackstagePassUpdater implements ItemUpdater {
+public class BackstageItemUpdater implements ItemUpdater {
     @Override
     public void update(Item item) {
         int dayBeforeConcert = item.sellIn;

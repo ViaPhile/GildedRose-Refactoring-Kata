@@ -10,6 +10,7 @@ class GildedRoseTest {
     public static final String ELIXIR = "Elixir of the Mongoose";
     public static final String AGED_BRIE = "Aged Brie";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    public static final String CONJURED = "Conjured Mana Cake";
 
     private static Item updateItemOnce(String name, int sellIn, int quality) {
         Item item = new Item(name, sellIn, quality);
@@ -123,7 +124,7 @@ class GildedRoseTest {
     @Test
     void conjuredItemDegradesByTwo_asNormal() {
         // les produits Conjured perdent normalement -2 points chaque jour
-        Item item = updateItemOnce("Conjured Mana Cake", 3, 10);
+        Item item = updateItemOnce(CONJURED, 3, 10);
 
         assertEquals(8, item.quality);
     }
@@ -131,16 +132,16 @@ class GildedRoseTest {
     @Test
     void conjuredItemDegradesByFour_afterSellDate() {
         // les produits Conjured perdent normalement -4 points après la date d'expiration
-        Item item = updateItemOnce("Conjured Mana Cake", 0, 10);
+        Item item = updateItemOnce(CONJURED, 0, 10);
 
         assertEquals(6, item.quality);
     }
 
     @Test
     void conjuredItemQuality_isNeverNegative() {
-        // On s'attends a ce que la qualité passe 0 étant donné que la qualité
-        // devrait perdre -4 points après la date d'expiration
-        Item item = updateItemOnce("Conjured Mana Cake", 0, 3);
+        // On s'attend à ce que la qualité passe 0 étant donné que la qualité
+        // devrait perdre -4 points après la date d'expiration.
+        Item item = updateItemOnce(CONJURED, 0, 3);
 
         assertEquals(0, item.quality);
     }
