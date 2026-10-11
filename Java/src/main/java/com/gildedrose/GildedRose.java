@@ -18,19 +18,18 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
-        if (item.name.equals(SULFURAS)) {
-            new LegendaryItemUpdater().update(item);
-            return;
+        switch (item.name) {
+            case SULFURAS:
+                new LegendaryItemUpdater().update(item);
+                return;
+            case AGED_BRIE:
+                new AgedBrieUpdater().update(item);
+                return;
+            case BACKSTAGE_PASSES:
+                new BackstagePassUpdater().update(item);
+                return;
+            default:
+                new NormalItemUpdater().update(item);
         }
-        if (AGED_BRIE.equals(item.name)) {
-            new AgedBrieUpdater().update(item);
-            return;
-        }
-        if (BACKSTAGE_PASSES.equals(item.name)) {
-            new BackstagePassUpdater().update(item);
-            return;
-        }
-
-        new NormalItemUpdater().update(item);
     }
 }
