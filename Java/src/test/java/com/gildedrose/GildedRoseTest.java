@@ -120,4 +120,29 @@ class GildedRoseTest {
         assertEquals(0, item.quality);
     }
 
+    @Test
+    void conjuredItemDegradesByTwo_asNormal() {
+        // les produits Conjured perdent normalement -2 points chaque jour
+        Item item = updateItemOnce("Conjured Mana Cake", 3, 10);
+
+        assertEquals(8, item.quality);
+    }
+
+    @Test
+    void conjuredItemDegradesByFour_afterSellDate() {
+        // les produits Conjured perdent normalement -4 points après la date d'expiration
+        Item item = updateItemOnce("Conjured Mana Cake", 0, 10);
+
+        assertEquals(6, item.quality);
+    }
+
+    @Test
+    void conjuredItemQuality_isNeverNegative() {
+        // On s'attends a ce que la qualité passe 0 étant donné que la qualité
+        // devrait perdre -4 points après la date d'expiration
+        Item item = updateItemOnce("Conjured Mana Cake", 0, 3);
+
+        assertEquals(0, item.quality);
+    }
+
 }
